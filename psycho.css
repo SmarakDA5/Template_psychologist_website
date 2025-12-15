@@ -2,16 +2,39 @@ html {
     height: 100%;
 }
 * {
-    margin-left: clamp(1.8rem, 7vw + 1rem, 5rem);
-    margin-right: clamp(1.8rem, 5vw + 1rem, 5rem);
-    background-color: rgb(255, 232, 223);
+    margin-left: 1.2vw;
+    margin-right:0vw;
     padding: 0; 
     box-sizing: border-box; 
+}
+button{
+    background-color: rgb(66, 44, 36);
+    height: max(7px,3vw);
+    border-radius: 70vw;
+    transition: transform 0.1s ease-in-out;
+}
+a{
+    text-decoration: none;
+    font-weight: 900;
+    color: rgb(255, 255, 255);
+    align-self: start;
+    transition: transform 0.1s ease-in-out;
+}
+a:hover,button:hover
+{
+    transform: scale(1.2)
+}
+.menu{
+    color:rgb(66, 44, 36);
+    align-self:flex-end;
+    justify-content:flex-start;
+    padding: 0.7vw;
 }
 .icon,p,h3{
     background-color: rgba(0,0,0, 0);
 }
 body {
+    background-color: rgb(255, 232, 223);
     display: flex;
     justify-content:start;
     max-height: 90vh; 
@@ -19,11 +42,10 @@ body {
     border: 20px;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 nav{
     display: flex;
-    align-items:flex-end;
-    justify-content:start;
     align-self: flex-start;
     min-width: 100vw;
     padding: 0;
@@ -38,22 +60,25 @@ nav{
     border-radius:38px;
 }
 main{
-    align-self:self-start;
+    align-self:start;
     display: grid;
-    min-width:90vw;
-    grid-auto-rows: 1fr 1fr 1fr;
+    max-width:70vw;
+    grid-auto-columns: 1fr 1fr 1fr 1fr ;
 }
 .content-1
 {
-    grid-column:2/3;
+    grid-column:4/4;
     grid-row: 1/2;
+    width: 60vw;
+    flex-grow: 2;
 }
 .content-2
 {
-    grid-column: 1/2;
+    grid-column: 3/4;
     grid-row: 1/2;
-    max-width:70%;;
+    width:40vw;;
     align-content: center;
+    flex-grow: 4;
 }
 .icon
 {
@@ -62,11 +87,8 @@ main{
 .carousel {
     display: flex; 
     overflow: hidden; 
-    width: 90%;
+    width: 60%;
     margin: 100px auto; 
-}
-.carousel::-webkit-scrollbar {
-    display: none;
 }
 .group {
     display: flex;
@@ -75,15 +97,14 @@ main{
     padding-left:0.2px;
     padding-top: 0.1em;
     padding-bottom: 0.1em;
-    
-    animation: spin 20s linear infinite normal;
+    animation: spin 15s linear infinite normal;
     flex-shrink: 0;
     width: max-content;
-    min-width: 100%;
+    min-width: 70%;
 }
-
 .card {
-    flex: 0 0 5em; 
+    flex: 0 0 20vw;
+    min-height: 30vw; 
     margin: 3px;
     padding:3px;
     background: white; 
@@ -104,5 +125,112 @@ main{
     }
     to {
         transform: translateX(-100%);
+    }
+}
+footer {
+    bottom:0;
+    margin: 0.1%;
+    margin-bottom: 0%;
+    position:-ms-page;
+    width:2000vw;
+    height:20vh;
+    background-color: rgb(56, 46, 43);
+    margin:0%;
+    padding-left: 0%;
+    align-content: center;
+    justify-content: center;
+}
+
+@media(max-width:640px)
+{
+    .content-1
+{
+    grid-row:3/4;
+    grid-column: 1/2;
+    width: 100vw;
+    flex-grow: 2;
+}
+.content-2
+{
+    grid-row: 4/4;
+    grid-column: 1/2;
+    width:100vw;;
+    align-content: center;
+    flex-grow: 4;
+}
+.carousel {
+    display: flex; 
+    overflow: hidden; 
+    width: 70%;
+    margin: 100px auto; 
+}
+.group {
+    display: flex;
+    gap: 3px; 
+    padding-right: 0px;
+    padding-left:0.2px;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    animation: spin 15s linear infinite normal;
+    flex-shrink: 0;
+    width: max-content;
+    min-width: 80%;
+}
+.card {
+    flex: 0 0 70vw;
+    min-height: 80vw; 
+    margin: 3px;
+    padding:3px;
+    background: white; 
+    border: 1px solid #ccc;
+    
+    font-size: 1rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    align-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    
+    padding: 1em; 
+}
+.button
+{
+    display:flex;
+    width:100vw;
+    justify-content: center;
+}
+button{
+    height:10vw;
+}
+}
+@media(min-width:1000px)
+{
+    *{
+        margin-left: 2vw;
+        margin-right:1vw
+    }
+    main{
+        align-self:start;
+        justify-self: center;
+        display: grid;
+        max-width:50vw;
+        grid-auto-columns: 1fr 1fr ;
+    }
+    .content-1
+    {
+        grid-column:4/4;
+        grid-row: 1/2;
+        width: 40vw;
+        flex-grow: 2;
+    }
+    .content-2
+    {
+        grid-column: 3/4;
+        grid-row: 1/2;
+        width:40vw;;
+        align-content: center;
+        flex-grow: 4;
+    }
+    .group{
+        padding: auto;
     }
 }
